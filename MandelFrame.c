@@ -37,7 +37,7 @@ void printUsage(char* argv[])
 
 	threshold = atof(argv[1]);
 	max_iterations = (u_int64_t)atoi(argv[2]);
-	center = newComplexNumber(atof(argv[3]), atof(argv[4]));
+	center = newComplexNumber(atof(argv[3]), atof(argv[4])); //Possible memory leak on this line
 	scale = atof(argv[5]);
 	resolution = (u_int64_t)atoi(argv[6]);
 
@@ -72,5 +72,7 @@ void printUsage(char* argv[])
 		fputc('\n', outputfile);
 	}
 	free(ar);
+        freeComplexNumber(center); //added to remove possible memory leak
+        fclose(outputfile); // added due to email sent saying there were two memory leaks
 	return 0;
 }
