@@ -20,44 +20,75 @@ typedef struct ComplexNumber
 ComplexNumber* newComplexNumber(double real_component, double imaginary_component)
 {
     //YOUR CODE HERE
-	return NULL;
+    ComplexNumber * complex_ptr;
+    complex_ptr = (ComplexNumber*) malloc(sizeof(ComplexNumber));
+    complex_ptr->real = real_component;
+    complex_ptr->imaginary = imaginary_component;
+    return complex_ptr;
 }
 
 //Returns a pointer to a new Complex Number equal to a*b
 ComplexNumber* ComplexProduct(ComplexNumber* a, ComplexNumber* b)
 {
     //YOUR CODE HERE
-	return NULL;
+    
+    double first_real = a->real;
+    double second_real = b->real;
+    double first_img = a->imaginary;
+    double second_img = b->imaginary;
+    double reala = first_real * second_real;
+    double realb = first_img * second_img;
+    double real = reala - realb;
+    double imga = first_real * second_img;
+    double imgb = first_img * second_real;
+    double img = imga + imgb;
+    ComplexNumber * complex_ptr = newComplexNumber(real, img);
+    return complex_ptr;
 }
 
 //Returns a pointer to a new Complex Number equal to a+b
 ComplexNumber* ComplexSum(ComplexNumber* a, ComplexNumber* b)
 {
     //YOUR CODE HERE
-	return NULL;
+    double first_real = a->real;
+    double second_real = b->real;
+    double first_img = a->imaginary;
+    double second_img = b->imaginary;
+    double real = first_real + second_real;
+    double img = first_img + second_img;
+    ComplexNumber * complex_ptr = newComplexNumber(real, img);
+    return complex_ptr;
+    
 }
 
 //Returns the absolute value of Complex Number a
 double ComplexAbs(ComplexNumber* a)
 {
     //YOUR CODE HERE
-	return 0;
+    double real = a->real;
+    double img = a->imaginary;
+    double modulus = sqrt(real * real + img * img);
+    return modulus;
+
 }
 
 void freeComplexNumber(ComplexNumber* a)
 {
-	//YOUR CODE HERE
+    //YOUR CODE HERE
+    free(a);
 }
 
 double Re(ComplexNumber* a)
 {
-	//YOUR CODE HERE
-	return 0;
+    //YOUR CODE HERE
+    double real = a->real;
+    return real;
 }
 double Im(ComplexNumber* a)
 {
-	//YOUR CODE HERE
-	return 0;
+    //YOUR CODE HERE
+    double img = a->imaginary;
+    return img;
 }
 
 
@@ -107,3 +138,9 @@ int test_complex_number()
 	free(c);
 	return 0;
 }
+
+/*int main() {
+    test_complex_number();
+    return 0;
+
+}*/
