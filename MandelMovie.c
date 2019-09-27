@@ -1,5 +1,4 @@
-/*********************
-**  Mandelbrot fractal movie generator
+/*Mandelbrot fractal movie generator
 ** clang -Xpreprocessor -fopenmp -lomp -o Mandelbrot Mandelbrot.c
 ** by Dan Garcia <ddgarcia@cs.berkeley.edu>
 ** Modified for this class by Justin Yokota and Chenyu Shi
@@ -103,7 +102,7 @@ int main(int argc, char* argv[])
         char p6[3] = {'P', '6', '\0'};
         char bytesize[4] = {'2', '5', '5', '\0'};
         char width[50];
-        memset(&width[0], 0, sizeof(width));
+        
 
         max_iterations = (uint64_t )atoi(argv[2]);
         center = newComplexNumber(atof(argv[3]), atof(argv[4]));
@@ -231,8 +230,8 @@ int main(int argc, char* argv[])
         
         for (i = 0; i < framecount; i++) {
             
-            snprintf(filenames, sizeof(filenames),"./%s/%s%05d%s", outputfolder, frame, i + 1, ppm);
-            outputfileptr = fopen(filenames, "wb"); 
+            snprintf(filenames, sizeof(filenames),"./%s/%s%05d.%s", outputfolder, frame, i + 1, ppm);
+            outputfileptr = fopen(filenames, "w+"); 
             fprintf(outputfileptr, "%s %s %s %s\n", p6, width, width, bytesize);
 
             iter_tracker = *(output_tracker + i);
@@ -313,4 +312,5 @@ int iteration_to_color(uint64_t iteration, int size_of_colormap) {
         return iteration % size_of_colormap;
     } 
 }
+
 
