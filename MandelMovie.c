@@ -103,7 +103,7 @@ int main(int argc, char* argv[])
         char bytesize[4] = {'2', '5', '5', '\0'};
         char width[50];
         
-
+        threshold = atof(argv[1]);
         max_iterations = (uint64_t )atoi(argv[2]);
         center = newComplexNumber(atof(argv[3]), atof(argv[4]));
         if (center == NULL) {
@@ -230,7 +230,7 @@ int main(int argc, char* argv[])
         
         for (i = 0; i < framecount; i++) {
             
-            snprintf(filenames, sizeof(filenames),"./%s/%s%05d.%s", outputfolder, frame, i + 1, ppm);
+            snprintf(filenames, sizeof(filenames),"./%s/%s%05d.%s", outputfolder, frame, i, ppm);
             outputfileptr = fopen(filenames, "w+"); 
             fprintf(outputfileptr, "%s %s %s %s\n", p6, width, width, bytesize);
 
