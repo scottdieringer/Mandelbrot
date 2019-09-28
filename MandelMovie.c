@@ -32,8 +32,9 @@ As another example, if initialscale=10, finalscale=0.01, framecount=5, then your
 void MandelMovie(double threshold, uint64_t max_iterations, ComplexNumber* center, double initialscale, double finalscale, int framecount, uint64_t resolution, uint64_t ** output){
     //YOUR CODE HERE
 
-    double a = (1/(framecount - 1)) * log10(finalscale / initialscale);
-    double common_ratio = pow(10, a);
+    double final_initial = finalscale / initialscale;
+    double frame_count = (double) 1 / (framecount - 1);
+    double common_ratio = pow(final_initial, frame_count);
     double scale;
     int i;
     uint64_t * array_iter;
