@@ -231,7 +231,7 @@ int main(int argc, char* argv[])
         
         for (i = 0; i < framecount; i++) {
             
-            snprintf(filenames, sizeof(filenames),"./%s/%s%05d.%s", outputfolder, frame, i, ppm);
+            snprintf(filenames, sizeof(filenames),"%s/%s%05d.%s", outputfolder, frame, i, ppm);
             outputfileptr = fopen(filenames, "w+"); 
             fprintf(outputfileptr, "%s %s %s %s\n", p6, width, width, bytesize);
 
