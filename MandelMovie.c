@@ -97,7 +97,7 @@ int main(int argc, char* argv[])
         size_t check;
 
 
-        char filenames[50];
+        char filenames[120];
         char frame[6] = {'f', 'r', 'a', 'm', 'e', '\0'};
         char ppm[4] = {'p', 'p', 'm', '\0'};
         char p6[3] = {'P', '6', '\0'};
