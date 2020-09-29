@@ -1,2 +1,2 @@
 # Project 1 
-Don't read me. Check out https://cs61c.org/projects/proj1/ instead.
+The Complexnumber.c sets up the complex number data structure used to calculate the Mandelbrot set.  Mandelbrot.c calculates the number of iterations done in each pixel and stores that in an array.  The output of Mandelbrot.c is then fed into Colorpalette.c which uses the array to make a map of the color of each pixel.  Finally Mandelbrotmovie.c is used to zoom in and out of the pixels created by Colorpalette.c  
